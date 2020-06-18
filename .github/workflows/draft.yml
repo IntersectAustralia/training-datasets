@@ -1,0 +1,34 @@
+name: Create nightly release
+
+on:
+  push: "*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -qq -r intersect_training_data.zip ./intersect_training
+
+      - name: Create Release
+        # This is so we can use the output in the upload step
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_name: Latest Release
+          draft: false
+          prerelease: true
+
+      - name: Upload programming traning data to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./intersect_training_data.zip
+          asset_name: intersect_training_data.zip
+          asset_content_type: application/zip
