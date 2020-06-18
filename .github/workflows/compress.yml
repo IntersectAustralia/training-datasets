@@ -1,0 +1,32 @@
+name: Zip directories
+
+on: [tag]
+
+jobs:
+  compress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -qq intersect_training_data.zip ./intersect_training
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload programming traning data to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./intersect_training_data.zip
+          asset_name: intersect_training_data.zip
+          asset_content_type: application/zip
