@@ -1,7 +1,6 @@
 name: Create nightly release
 
-on:
-  push: "*"
+on: [push]
 
 jobs:
   release:
