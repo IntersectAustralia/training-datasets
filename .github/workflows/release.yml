@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq intersect_training_data.zip ./intersect_training
+          args: zip -qq -r intersect_training_data.zip ./intersect_training
 
       - name: Create Release
         # This is so we can use the output in the upload step
