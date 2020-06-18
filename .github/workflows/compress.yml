@@ -1,6 +1,8 @@
 name: Zip directories
 
-on: [tag]
+on:
+  push:
+    tags: "*"
 
 jobs:
   compress:
