@@ -14,6 +14,8 @@ jobs:
           args: zip -qq intersect_training_data.zip ./intersect_training
 
       - name: Create Release
+        # This is so we can use the output in the upload step
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
