@@ -18,7 +18,8 @@ jobs:
         uses: meeDamian/github-release@v2.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          allow_override: True 
+          allow_override: True
+          gzip: False
           files: >
             intersect_training_data.zip
         
