@@ -20,5 +20,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           allow_override: True 
           files: >
-            intersect-training-data.zip
+            intersect_training_data.zip
         
