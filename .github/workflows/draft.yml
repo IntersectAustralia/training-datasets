@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Compress Directories
         uses: montudor/action-zip@v0.1.0
         with:
@@ -17,7 +17,7 @@ jobs:
         uses: meeDamian/github-release@v2.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref }}
+          tag: latest
           name: Master
           allow_override: True
           gzip: False
