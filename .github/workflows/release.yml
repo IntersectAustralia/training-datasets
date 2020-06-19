@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
+      - uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -qq -r intersect_training_data.zip ./intersect_training
 
       - name: Create Release
         uses: meeDamian/github-release@v2.0.1
@@ -16,5 +20,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           allow_override: True 
           files: >
-            intersect-training-data.zip:intersect_training
+            intersect-training-data.zip
         
