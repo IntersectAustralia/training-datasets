@@ -1,5 +1,4 @@
-name: Zip directories
-
+name: Create Release
 on:
   push:
     tags: "*"
