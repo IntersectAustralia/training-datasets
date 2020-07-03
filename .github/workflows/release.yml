@@ -11,7 +11,7 @@ jobs:
 
       - uses: montudor/action-zip@v0.1.0
         with:
-          args: cd intersect_training && zip -qq -r intersect_training.zip ./*
+          args: zip -qq -r intersect_training.zip data results src docs README
 
       - name: Create Release
         uses: meeDamian/github-release@v2.0.1
