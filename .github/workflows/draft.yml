@@ -11,7 +11,7 @@ jobs:
       - name: Compress Directories
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r intersect_training_data.zip ./intersect_training
+          args: cd intersect_training && zip -qq -r intersect_training.zip ./*
 
       - name: Create Release
         uses: meeDamian/github-release@v2.0.1
@@ -23,4 +23,4 @@ jobs:
           prerelease: True
           gzip: False
           files: >
-            intersect_training_data.zip
+            intersect_training/intersect_training.zip
