@@ -5,7 +5,7 @@ intersect.
 
 The links to download the latest version of the datasets are;
 
-- [intersect_training](https://github.com/IntersectAustralia/training-datasets/releases/latest/download/intersect_training_data.zip)
+- [intersect_training](https://github.com/IntersectAustralia/training-datasets/releases/latest/download/intersect_training.zip)
 
 ## Updating Datasets
 
