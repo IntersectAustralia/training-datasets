@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+dependencies:
+  # Python Deps -> python is already included in the default image
+  - numpy==1.18.5
+  - matplotlib==3.2.2
+  - seaborn==0.10.1
+  - pandas==1.0.5
